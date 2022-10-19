@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1078999172694",
+    "project_id": "flicker-rave",
+    "storage_bucket": "flicker-rave.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078999172694:android:ba29631b523c6c3fb65df7",
+        "android_client_info": {
+          "package_name": "com.correctsport"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078999172694-a1f4tqh5q36rmlnmqgf81kju5qf39rpm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABFKm3YGCImxSVlduFy-zWtE9AMtPuipI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078999172694-a1f4tqh5q36rmlnmqgf81kju5qf39rpm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

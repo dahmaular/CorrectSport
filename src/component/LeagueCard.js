@@ -26,6 +26,7 @@ const LeagueCard = ({
   team1Goals,
   team2Goals,
   timeStamp,
+  onPress
 }) => {
   let navigation = useNavigation();
 
@@ -34,7 +35,6 @@ const LeagueCard = ({
   return (
     <View style={styles.container}>
       <View style={styles.country}>
-        <SpainFlag style={styles.flag} />
         <View style={{flex: 1}}>
           <Text style={styles.league}>{league}</Text>
           <Text style={styles.lgCountry}>{country}</Text>
@@ -43,41 +43,42 @@ const LeagueCard = ({
       </View>
       <TouchableOpacity
         style={styles.scoreCard}
-        onPress={() => navigation.navigate('Details')}>
+        onPress={onPress}>
         <View style={{flexDirection: 'row'}}>
           <View style={styles.clubFlag}>
-            <Avatar.Image
-              size={20}
-              source={{
-                uri: `https://lsm-static-prod.livescore.com/medium/${team1Image}`,
-              }}
-            />
-
-            <Avatar.Image
-              source={{
-                uri: `https://lsm-static-prod.livescore.com/medium/${team2Image}`,
-              }}
-              size={20}
-            />
+            
           </View>
-          <View style={{marginVertical: 15, flex: 1}}>
+          <View style={{flex: 1}}>
             <View>
-              <View style={{flexDirection: 'row'}}>
-                <View style={{flex: 1}}>
+              <View style={styles.clubFlag}>
+                <Avatar.Image
+                  size={20}
+                  style={{backgroundColor:'transparent'}}
+                  source={{
+                    uri: `https://lsm-static-prod.livescore.com/medium/${team1Image}`,
+                  }}
+                />
+                <View style={{flex: 1, marginHorizontal: 5}}>
                   <Text style={styles.clubText}>
-                    {/* {team1Name} */} Tottenham Hotspur
+                    {team1Name}
                   </Text>
                 </View>
-                <Text style={styles.clubText}>{team1Goals} 0</Text>
+                <Text style={styles.clubText}>{team1Goals}</Text>
               </View>
-              {/* <Text style={styles.clubText}> vs</Text> */}
-              <View style={{flexDirection: 'row'}}>
-                <View style={{flex: 1}}>
+              <View style={styles.clubFlag}>
+                <Avatar.Image
+                  source={{
+                    uri: `https://lsm-static-prod.livescore.com/medium/${team2Image}`,
+                  }}
+                  style={{backgroundColor:'transparent'}}
+                  size={20}
+                />
+                <View style={{flex: 1, marginHorizontal: 5}}>
                   <Text style={styles.clubText}>
-                    {/* {team2Name} */} Wolverhampton Wanderers
+                    {team2Name}
                   </Text>
                 </View>
-                <Text style={styles.clubText}>{team2Goals} 0</Text>
+                <Text style={styles.clubText}>{team2Goals}</Text>
               </View>
             </View>
           </View>
@@ -99,6 +100,7 @@ const styles = StyleSheet.create({
   },
   country: {
     flexDirection: 'row',
+    marginLeft: 40
   },
   flag: {
     marginRight: 15,
@@ -125,11 +127,10 @@ const styles = StyleSheet.create({
     marginVertical: 10,
   },
   clubFlag: {
-    // flexDirection: 'row',
+    flexDirection: 'row',
     justifyContent: 'space-around',
-    // width: width/8,
-    // marginTop: 20,
-    marginHorizontal: 5,
+    marginHorizontal: 3,
+    marginVertical:6
   },
   clubText: {
     fontSize: 13,

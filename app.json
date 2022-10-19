@@ -1,4 +1,8 @@
 {
   "name": "CorrectSport",
-  "displayName": "CorrectSport"
+  "displayName": "CorrectSport",
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-6149892466016853~6383353323",
+    "ios_app_id": "ca-app-pub-6149892466016853~6383353323"
+  }
 }

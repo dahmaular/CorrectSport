@@ -1,17 +1,25 @@
-import {Dimensions, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Dimensions,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import React from 'react';
 import SearchIcon from '../assets/svg/Search.svg';
+import logo from '../assets/image/logowhite.png';
 
-const {width} = Dimensions.get('screen');
+const {width, height} = Dimensions.get('screen');
 const Header = ({title}) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerMenu}>
-        <TouchableOpacity style={{flex:1}}>
-          <Text style={styles.title}>{title}</Text>
+        <TouchableOpacity style={{flex: 1}}>
+          <Image source={logo} style={{width: width / 6.5, height: 60}} />
         </TouchableOpacity>
         <View style={styles.search}>
-            <SearchIcon />
+          <SearchIcon />
         </View>
       </View>
     </View>
@@ -23,19 +31,22 @@ export default Header;
 const styles = StyleSheet.create({
   container: {
     width,
-    height: 60,
+    height: height / 10,
     backgroundColor: '',
   },
   headerMenu: {
     flexDirection: 'row',
-    padding: 20,
+    paddingVertical: 20,
+    paddingHorizontal: 5,
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 22,
-    fontWeight:'bold',
-    color: '#ffffff'
+    fontWeight: 'bold',
+    color: '#ffffff',
   },
   search: {
-    marginHorizontal: 20
-  }
+    marginHorizontal: 20,
+  },
 });

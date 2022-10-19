@@ -1,63 +1,60 @@
 import {StyleSheet, Dimensions, Text, View} from 'react-native';
 import React from 'react';
 import {TouchableOpacity} from 'react-native';
-import moment from 'moment/moment';
-import {useState} from 'react';
+import { useState } from 'react';
 
 const {width, height} = Dimensions.get('screen');
 
-const DatePicker = () => {
-  const [todaysDate, setTodaysDate] = useState(
-    moment(new Date()).format('YYYYMMDD'),
-  );
-
-  // console.log(todaysDate);
-
-  // Coming days and current
-  const today = moment(new Date()).format('ll').split(',');
-  const day1 = moment(new Date()).add(1, 'day').format('llll').split(',');
-  const day2 = moment(new Date()).add(2, 'day').format('llll').split(',');
-  const day3 = moment(new Date()).add(3, 'day').format('llll').split(',');
-
-  // Previous days
-  const day1Befor = moment(new Date())
-    .subtract(1, 'day')
-    .format('llll')
-    .split(',');
-  const day2Befor = moment(new Date())
-    .subtract(2, 'day')
-    .format('llll')
-    .split(',');
-
+const DatePicker = ({
+  today,
+  day1,
+  day1Text,
+  day2,
+  day2Text,
+  day3,
+  day3Text,
+  day1Befor,
+  day1BeforText,
+  day2BeforText,
+  day2Befor,
+  onPressDay2Befor,
+  onPressDay1Befor,
+  onPressToday,
+  onPressDay1,
+  onPressDay2,
+  onPressDay3,
+  onPressLive
+}) => {
+  const [changeColors, setChangeColors] = useState()
   return (
     <View style={styles.container}>
       <View style={styles.dateRow}>
-        <TouchableOpacity style={styles.liveBox}>
+        <TouchableOpacity style={styles.liveBox} onPress={onPressLive}>
           <Text style={styles.text}>LIVE</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.dateBox}>
-          <Text style={styles.text}>{day2Befor[0].toString()}</Text>
-          <Text style={styles.subText}>{day2Befor[1].trim()}</Text>
+        <TouchableOpacity style={styles.dateBox} onPress={onPressDay2Befor}>
+          <Text style={styles.text}>{day2BeforText}</Text>
+          <Text style={styles.subText}>{day2Befor}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.dateBox}>
-          <Text style={styles.text}>{day1Befor[0]}</Text>
-          <Text style={styles.subText}>{day1Befor[1].trim()}</Text>
+        <TouchableOpacity style={styles.dateBox} onPress={onPressDay1Befor}>
+          <Text style={styles.text}>{day1BeforText}</Text>
+          <Text style={styles.subText}>{day1Befor}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.todayBox}>
+        <TouchableOpacity style={styles.todayBox} onPress={onPressToday}>
           <Text style={styles.todayText}>TODAY</Text>
-          <Text style={styles.todaySubText}>{today[0]}</Text>
+          <Text style={styles.todaySubText}>{today}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.dateBox}>
-          <Text style={styles.text}>{day1[0]}</Text>
-          <Text style={styles.subText}>{day1[1].trim()}</Text>
+        <TouchableOpacity style={styles.dateBox} onPress={onPressDay1}>
+          <Text style={styles.text}>{day1Text}</Text>
+          <Text style={styles.subText}>{day1}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.dateBox}>
-          <Text style={styles.text}>{day2[0]}</Text>
-          <Text style={styles.subText}>{day2[1].trim()}</Text>
+        <TouchableOpacity style={styles.dateBox} onPress={onPressDay2}>
+          <Text style={styles.text}>{day2Text}</Text>
+          <Text style={styles.subText}>{day2}</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.dateBox}>
-          <Text style={styles.text}>{day3[0]}</Text>
-          <Text style={styles.subText}>{day3[1].trim()}</Text>
+        <TouchableOpacity style={styles.dateBox} onPress={onPressDay3}>
+          <Text style={styles.text}>{day3Text}</Text>
+          <Text style={styles.subText}>{day3}</Text>
         </TouchableOpacity>
       </View>
     </View>
